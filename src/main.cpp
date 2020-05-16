@@ -48,5 +48,35 @@ void loop()
 
 void writePixel(int index)
 {
-  pixels.setPixelColor(index, pixels.Color(255, 255, 255));
+  //1. get image coordinate
+  byte x = getXCoordinate(index);
+  byte y = getYCoordinate(index);
+  byte color = image[y][x];
+  if (color == 1)
+  {
+    pixels.setPixelColor(index, pixels.Color(255, 255, 255));
+  }
+  else
+  {
+    pixels.setPixelColor(index, pixels.Color(0, 0, 0));
+  }
+}
+
+// Input: a number from 0 to 63
+// Output: the x coordinate of the index
+byte getXCoordinate(byte index)
+{
+  byte rowNumber = getYCoordinate(index);
+
+  //If we're on an even row
+  if (rowNumber % 2 == 0)
+  {
+    return index % 8;
+  }
+  return 7 - (index % 8);
+}
+
+byte getYCoordinate(byte index)
+{
+  return index / 8;
 }
