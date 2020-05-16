@@ -26,11 +26,11 @@ void setup()
 
 byte image[8][8] = {
     {0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 1, 0, 0, 1, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 1, 0, 0, 0, 0, 1, 0},
+    {0, 0, 1, 1, 1, 1, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0, 0}};
 
@@ -54,7 +54,7 @@ void writePixel(int index)
   byte color = image[y][x];
   if (color == 1)
   {
-    pixels.setPixelColor(index, pixels.Color(255, 255, 255));
+    pixels.setPixelColor(index, pixels.Color(255, 255, 0));
   }
   else
   {
